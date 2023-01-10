@@ -1,20 +1,51 @@
-import { View,StyleSheet } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
+import Text from "./Text";
+import { Link } from "react-router-native";
+import theme from "../theme";
+const styles = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderColor: "red",
+    display: "flex",
+    flexDirection: "row",
+    height: 100,
+    backgroundColor: theme.colors.appBarBackground,
+    alignItems: "center",
+  },
+  text: {
+    paddingTop: 10,
+    paddingRight: 10,
+    color: "white",
+  },
+});
 
-import Constants from 'expo-constants';
-
-
-const styles=StyleSheet.create({
-    container:{
-        paddingTop:Constants.statusBarHeight,
-        backgroundColor:'#24292e',
-        color:'white',
-        fontWeight:'bold',
-        padding:10
-    }
-})
-
-const AppBar=()=>{
-    return <View style={styles.container}>Repositories</View>
-}
+const AppBar = () => {
+  return (
+    <View style={styles.container}>
+      <ScrollView horizontal>
+        <Link to="/">
+          <Text style={styles.text} fontSize="subheading" fontWeight="bold">
+            RepositoryList
+          </Text>
+        </Link>
+        <Link to="/signin">
+          <Text style={styles.text} fontSize="subheading" fontWeight="bold">
+            SignIn
+          </Text>
+        </Link>
+        <Link to="/a">
+          <Text style={styles.text} fontSize="subheading" fontWeight="bold">
+            some
+          </Text>
+        </Link>
+        <Link to="/b">
+          <Text style={styles.text} fontSize="subheading" fontWeight="bold">
+            some2
+          </Text>
+        </Link>
+      </ScrollView>
+    </View>
+  );
+};
 
 export default AppBar;
